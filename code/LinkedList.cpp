@@ -1,3 +1,4 @@
+//Drake E. Potter 9/22/17
 // LinkedList.cpp
 
 // tom bailey   0745  5 oct 2010
@@ -65,6 +66,23 @@ double List::removeFirst()
 	return item;
 }
 
+void List::insertAsLast(double x)
+{
+	if(empty())
+		first_ = new Node(x, first_);
+	else
+	{
+		Node * ptr = first_;
+		while(ptr->next_ != NULL)
+		{
+			ptr = ptr->next_;
+		}
+
+		Node * last = new Node(x);
+		ptr->next_ = last;
+	}
+}
+
 
 void List::print(ostream & outfile) const
 {
@@ -82,6 +100,37 @@ void List::print(ostream & outfile) const
 		}
 	}
 	outfile << " ]";
+}
+
+int List::size()
+{
+	int counter = 0;
+	if (empty())
+	{
+		return counter;
+	}
+	counter = 1;
+	Node * ptr = first_->next_;
+	while (ptr != NULL)
+	{
+		counter++;
+		ptr = ptr->next_;
+	}
+	return counter;
+}
+
+double List::sum()
+{
+	if(empty())
+		return 0.0;
+	Node * ptr = first_->next_;
+	double total = first_->entry_;
+	while (ptr != NULL)
+	{
+		total = total + ptr->entry_;
+		ptr = ptr->next_;
+	}
+	return total;
 }
 
 

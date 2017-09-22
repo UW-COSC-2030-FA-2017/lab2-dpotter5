@@ -1,3 +1,4 @@
+//Drake E. Potter 9/22/17
 // LinkedList.h
 
 // tom bailey   0740  5 oct 2010
@@ -15,7 +16,7 @@
 #include <iostream>
 using std::ostream;
 
-#include "Node.cpp"
+#include "Node.h"
 
 #define ulong unsigned long
 
@@ -53,7 +54,12 @@ public:
 	// post: the doubles in this List have been written to
 	//         outfile.
 	void print(ostream & outfile) const;
+	
+	//post: returns the number of items in the List
+	int size();
 
+	//post: returns the sum of the doubles in the List
+	double sum();
 
 	//*** Mutators ***
 
@@ -65,6 +71,9 @@ public:
 	// post: the first double in this List has been removed
 	//         from this List and has been returned.
 	double removeFirst();
+
+	//post: x has been added as the last double in this List.
+	void insertAsLast(double x);
 
 private:
 	//*** Inaccessible standard functions ***
